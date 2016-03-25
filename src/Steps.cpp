@@ -22,8 +22,16 @@
 */
 #include "stdafx.h"
 
-
+int fib(int);
 int get_steps(int s)
 {
-	return 0;
+	int no_of_steps = fib(s);
+	return no_of_steps;
+}
+int fib(int s)
+{
+	if (s <= 1)
+		return s;
+	else
+		return(fib(s - 1) + fib(s - 2));
 }

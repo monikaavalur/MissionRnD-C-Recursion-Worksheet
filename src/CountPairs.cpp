@@ -25,7 +25,7 @@ NOTE : Donot use any Global Variables
 //You can use this function ,for the actual recursion .Think of similar functions for all other problems.
 int count_pairs(char *str, int len, int start, int end)
 {
-	if (len == 0)
+	if (str==""&&len == 0)
 	{
 		return 0;
 	}
