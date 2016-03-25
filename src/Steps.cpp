@@ -25,7 +25,7 @@
 int fib(int);
 int get_steps(int s)
 {
-	int no_of_steps = fib(s);
+	int no_of_steps = fib(s+1);
 	return no_of_steps;
 }
 int fib(int s)
@@ -33,5 +33,5 @@ int fib(int s)
 	if (s <= 1)
 		return s;
 	else
-		return(fib(s - 1) + fib(s - 2));
+		return fib(s - 1) + fib(s - 2);
 }
