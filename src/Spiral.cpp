@@ -37,8 +37,6 @@ Note : Check the function Parameters ,Its a double pointer .
 
 int *spiral(int rows, int columns, int **input_array)
 {
-	
 	return NULL;
-
 
 }
