@@ -34,7 +34,11 @@ Note : Check the function Parameters ,Its a double pointer .
 #include "stdafx.h"
 #include<stdlib.h>
 
+
 int *spiral(int rows, int columns, int **input_array)
 {
+	
 	return NULL;
+
+
 }

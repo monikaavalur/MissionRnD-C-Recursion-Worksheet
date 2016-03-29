@@ -41,8 +41,55 @@ Read :How to access elements in 2D array when its first element address is passe
 
 P.S: The Above Problem is just a modified version of a popular BackTracking problem .
 */
-
+#include<stdio.h>
+#include<math.h>
 #include "stdafx.h"
-int solve_nsnipers(int *battlefield, int n){
+int place_snippers(int *battlefield, int row, int column, int N);
+int snippers(int *battlefield, int n, int index);
+int solve_nsnipers(int *battlefield, int n)
+{
+	if (battlefield == NULL || n == 0)
+		return 0;
+	int index = 0;
+	if (snippers(battlefield, n, 0) == 1)
+		return 1;
+
 	return 0;
+}
+int snippers(int *battlefield, int n, int index)
+{
+	if (index >= n)
+		return 1;
+	for (int i = 0; i < n; i++)
+	{
+		if (place_snippers(battlefield, i, index, n))
+		{
+			battlefield[i*n + index] = 1;
+			if (snippers(battlefield, n, index + 1))
+				return 1;
+			battlefield[i*n+index] = 0;
+		}
+	}
+	return 0;
+}
+int place_snippers(int *battlefield, int row, int column, int N)
+{
+	int i, j;
+
+	for (i = 0; i < column; i++)
+		if (battlefield[row*N+i])
+			return 0;
+
+	/* Check upper diagonal on left side */
+	for (i = row, j = column; i >= 0 && j >= 0; i--, j--)
+		if (battlefield[i*N+j])
+			return 0;
+
+	/* Check lower diagonal on left side */
+	for (i = row, j = column; j >= 0 && i<N; i++, j--)
+		if (battlefield[i*N+j])
+			return 0;
+
+	return 1;
+
 }
